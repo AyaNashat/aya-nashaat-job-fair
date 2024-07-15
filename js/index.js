@@ -22,7 +22,6 @@ fetchData().then(() => {
     function renderTable(customersData) {
 
         for (let customer of customersData) {
-            console.log(customer);
             let transactions = data['transactions'].filter(tran => tran.customer_id === customer.id);
             let totalAmount = transactions.reduce((sum, tran) => sum + tran.amount, 0);
 
@@ -48,8 +47,6 @@ fetchData().then(() => {
         const query = searchInput.value.toLowerCase();
         const customers = data.customers.filter(customer => customer.name.toLowerCase().includes(query));
         customerDataTbody.innerHTML = '';
-        console.log('the form is cleared');
-        console.log(customers);
         renderTable(customers);
     }
 
@@ -75,7 +72,6 @@ fetchData().then(() => {
         const customerTransactions = data.transactions.filter(transaction => transaction.customer_id === customerId);
         const transactionDates = customerTransactions.map(transaction => transaction.date);
         const transactionAmounts = customerTransactions.map(transaction => transaction.amount);
-        console.log(transactionAmounts)
         myChart.data.labels = transactionDates;
         myChart.data.datasets[0].data = transactionAmounts;
         myChart.update();
