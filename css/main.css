@@ -1,0 +1,20 @@
+.search .find{
+ background-color: #D1E7DD;
+    
+  
+}
+.table{
+    border: 1px  double rgb(175, 170, 170);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+}
+.home h1{
+    background:linear-gradient(to right, rgb(199, 219, 210), rgb(80, 87, 84));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.input-group i{
+    color: #C7DBD2;
+   
+}
