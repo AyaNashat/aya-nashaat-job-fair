@@ -13,8 +13,7 @@ fetchData().then(() => {
     const storedData = localStorage.getItem('data');
 
     const data = JSON.parse(storedData);
-    // console.log(JSON.parse(data));
-    console.log(data.customers);
+
 
     const customerDataTbody = document.getElementById('customer-data');
     const searchInput = document.getElementById('searchInput');
@@ -22,35 +21,20 @@ fetchData().then(() => {
 
     function renderTable(customersData) {
 
-        let index = 1;
         for (let customer of customersData) {
             console.log(customer);
             let transactions = data['transactions'].filter(tran => tran.customer_id === customer.id);
             let totalAmount = transactions.reduce((sum, tran) => sum + tran.amount, 0);
 
-            // console.log(totalAmount)
-
             let row = document.createElement('tr');
 
             row.innerHTML = `
-                <td>${index ++}</td>
+                <td>${customer.id}</td>
                 <td class="customer-name">${customer.name}<input type="hidden" value="${customer.id}" class="customer-id"></td>
                 <td>${totalAmount}</td>
             `;
 
             customerDataTbody.appendChild(row)
-
-            // let indexCell = document.createElement('td');
-            // indexCell.textContent = index++;
-            // row.appendChild(indexCell);
-            //
-            // let nameCell = document.createElement('td');
-            // nameCell.textContent = customer.name;
-            // row.appendChild(nameCell);
-            //
-            // let transactionCountCell = document.createElement('td');
-            // transactionCountCell.textContent = totalAmount;
-            // row.appendChild(transactionCountCell);
 
 
         }
